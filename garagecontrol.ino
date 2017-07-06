@@ -32,6 +32,7 @@ void setup()
   
     //Register Particle functions
     Particle.function("getDoor", getDoor);
+    Particle.function("putDoor", putDoor);
  
     //Register Particle variables (not currently used)
     Particle.variable("Door_State", "closed");
@@ -40,7 +41,6 @@ void setup()
     pinMode(Door_SensorOpen_Pin, INPUT);
     pinMode(Door_SensorClosed_Pin, INPUT);
 }
-
 
 // ********************************************************************
 // LOOP
@@ -57,9 +57,7 @@ void loop()
     }
 
     Door_State_Previous = Door_State;
-
 }
-
 
 // ********************************************************************
 // Read Door  State
@@ -94,7 +92,6 @@ int getDoorState(){
     return Door_State;
 }
 
-
 // ********************************************************************
 // Read Door State
 // ********************************************************************
@@ -102,7 +99,6 @@ int getDoor(String args){
     getDoorState();
     return (int)Door_State;
 }
-
 
 // ********************************************************************
 // Control Door
@@ -161,8 +157,6 @@ int putDoor(String command)
     
     return Door_State;
 }
-
-
 
 // ********************************************************************
 // Publish Door
